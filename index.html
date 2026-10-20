@@ -13,6 +13,9 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
     :root {
       --primary: #0f1e36;
@@ -723,7 +726,7 @@
   <header class="profile-hero">
     <div class="container">
       
-      <!-- صورة الدكتور: النقر على أي مكان بالإطار يكبر الصورة، وتمت إزالة الأيقونة -->
+      <!-- صورة الدكتور: النقر على أي مكان بالإطار يكبر الصورة -->
       <div class="doctor-avatar-wrap" onclick="openLightbox('https://i.postimg.cc/GhzGg3jt/1792464977223.jpg')" title="اضغط لتكبير الصورة">
         <img src="https://i.postimg.cc/GhzGg3jt/1792464977223.jpg" alt="د. عماد حسين - جراحة وتجميل الأنف">
       </div>
@@ -812,8 +815,10 @@
             <div class="radio-row">
               <label class="radio-option"><input type="radio" name="priorNoseOp" value="لا" checked> لا</label>
               <label class="radio-option"><input type="radio" name="priorNoseOp" value="نعم"> نعم</label>
+                      <label class="radio-option"><input type="radio" name="priorNoseOp" value="لا" checked> لا</label>
+              <label class="radio-option"><input type="radio" name="priorNoseOp" value="نعم"> نعم</label>
             </div>
-            <input type="text" id="priorNoseNote" class="form-control te-input" placeholder="إذا كانت الإجابة نعم، اذكر نوع وتاريخ العملية (اختياري)">
+            <input type="text" id="priorNoseNote" class="form-control extra-note-input" placeholder="إذا كانت الإجابة نعم، اذكر نوع وتاريخ العملية (اختياري)">
           </div>
 
           <!-- عمليات جراحية أخرى تحت التخدير العام -->
@@ -880,7 +885,7 @@
       </div>
     </section>
 
-    <!-- 2. Before & After Cases Carousel (معرض الحالات) -->
+    <!-- 2. Before & After Cases Carousel (معرض الحالات الحي من Supabase) -->
     <section id="gallery-section">
       <div class="section-head">
         <h2><i class="fas fa-camera-retro"></i> بعض من نتائج الحالات</h2>
@@ -1113,8 +1118,46 @@
   </div>
 
   <script>
+    // إعدادات الربط المباشر مع Supabase
+    const SUPABASE_URL = "https://hbclaonthehuisopnhax.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_D6poYLjAjqJC9WuzIkI4dA_UoXmRc8Y";
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // جلب الحالات ديناميكياً من Supabase
+    async function loadPublicCases() {
+      const gallery = document.getElementById('casesGallery');
+      if (!gallery) return;
+
+      try {
+        const { data, error } = await supabaseClient
+          .from('cases')
+          .select('*')
+          .order('id', { ascending: false });
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          gallery.innerHTML = '';
+          data.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'gallery-item';
+            itemDiv.onclick = () => openLightbox(item.image_url);
+            itemDiv.innerHTML = `
+              <div class="gallery-zoom-badge"><i class="fas fa-search-plus"></i></div>
+              <img src="${item.image_url}" alt="نتيجة حالة جراحة وتجميل أنف" loading="lazy">
+            `;
+            gallery.appendChild(itemDiv);
+          });
+        }
+      } catch (err) {
+        console.error("Error fetching cases from Supabase:", err);
+      }
+    }
+
     // توليد خيارات الأعمار من 16 إلى 60 سنة تلقائياً
     window.addEventListener('DOMContentLoaded', () => {
+      loadPublicCases();
+
       const ageSelect = document.getElementById('patientAge');
       if (ageSelect) {
         for (let i = 16; i <= 60; i++) {
@@ -1203,5 +1246,4 @@
     }
   </script>
 </body>
-  </html>
-  
+</html>
