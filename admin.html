@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم | عيادة د. عماد حسين</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    :root {
+      --primary: #0f1e36;
+      --accent: #c59b4c;
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --border: #cbd5e1;
+      --danger: #ef4444;
+      --success: #10b981;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+    body { background: var(--bg); color: #1e293b; padding: 20px 16px; min-height: 100vh; }
+    .container { max-width: 600px; margin: 0 auto; }
+
+    /* Login Screen */
+    #loginBox {
+      background: var(--surface);
+      padding: 30px 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 12px 0 16px;
+      outline: none;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-danger { background: var(--danger); color: #fff; }
+
+    /* Dashboard */
+    #adminDashboard { display: none; }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      background: var(--surface);
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .card {
+      background: var(--surface);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .helper-box {
+      background: #eff6ff;
+      border: 1px dashed #93c5fd;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #1e40af;
+      margin-bottom: 14px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .gallery-item-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+
+    .gallery-item-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .btn-delete-img {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: rgba(239, 68, 68, 0.9);
+      color: #fff;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- شاشة تسجيل الدخول -->
+    <div id="loginBox">
+      <i class="fas fa-user-shield" style="font-size: 2.8rem; color: var(--primary); margin-bottom: 12px;"></i>
+      <h2 style="font-size: 1.25rem; font-weight: 800;">تسجيل دخول لوحة تحكم د. عماد</h2>
+      <p style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">أدخل كلمة المرور للمتابعة</p>
+      
+      <input type="password" id="adminPass" class="form-control" placeholder="كلمة المرور">
+      <button class="btn btn-primary" onclick="verifyLogin()">دخول للوحة التحكم</button>
+      <p id="loginError" style="color: var(--danger); font-size: 0.82rem; margin-top: 10px; display: none;">كلمة المرور غير صحيحة!</p>
+    </div>
+
+    <!-- لوحة التحكم الفعلية -->
+    <div id="adminDashboard">
+      
+      <div class="header-bar">
+        <div>
+          <h2 style="font-size: 1.15rem; font-weight: 800; color: var(--primary);">إدارة محتوى الموقع</h2>
+          <span style="font-size: 0.8rem; color: #64748b;">د. عماد حسين</span>
+        </div>
+        <button class="btn btn-danger" style="width: auto; padding: 6px 14px; font-size: 0.8rem;" onclick="logout()">خروج</button>
+      </div>
+
+      <!-- قسم إضافة حالة جديدة -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-plus-circle" style="color: var(--accent);"></i> إضافة صورة حالة جديدة</div>
+        
+        <div class="helper-box">
+          <i class="fas fa-info-circle"></i> يمكنك رفع الصورة عبر موقع <strong>ImgBB</strong> مجاناً ونسخ الرابط المباشر، أو فتح الموقع من الزر أدناه مباشرة:
+        </div>
+
+        <a href="https://imgbb.com/upload" target="_blank" class="btn btn-primary" style="background: #2563eb; margin-bottom: 14px;">
+          <i class="fas fa-upload"></i> فتح موقع ImgBB لرفع الصورة
+        </a>
+
+        <label style="font-size: 0.85rem; font-weight: 700;">رابط الصورة المباشر:</label>
+        <input type="url" id="newImageUrl" class="form-control" placeholder="https://i.ibb.co/..../image.jpg">
+        
+        <button class="btn btn-success" onclick="addNewCase()">
+          <i class="fas fa-save"></i> حفظ وإضافة للمعرض فوراً
+        </button>
+      </div>
+
+      <!-- قسم إدارة الحالات الحالية -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-images"></i> الحالات المعروضة بالموقع حالياً</div>
+        <p style="font-size: 0.82rem; color: #64748b;">اضغط على أيقونة الحذف الحمراء لإزالة الصورة من الموقع فوراً.</p>
+
+        <div id="galleryContainer" class="gallery-grid">
+          <!-- تظهر الصور ديناميكياً هنا -->
+        </div>
+        <p id="emptyMsg" style="text-align: center; color: #94a3b8; font-size: 0.85rem; margin-top: 20px; display: none;">لا توجد حالات مضافة حالياً.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // إعدادات الربط المباشر مع Supabase
+    const SUPABASE_URL = "https://hbclaonthehuisopnhax.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_D6poYLjAjqJC9WuzIkI4dA_UoXmRc8Y";
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // كلمة مرور لوحة التحكم الافتراضية (يمكنك تعديلها من هنا)
+    const ADMIN_PASSWORD = "123456";
+
+    function verifyLogin() {
+      const pass = document.getElementById('adminPass').value;
+      if (pass === ADMIN_PASSWORD) {
+        document.getElementById('loginBox').style.display = 'none';
+        document.getElementById('adminDashboard').style.display = 'block';
+        loadCases();
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+      }
+    }
+
+    function logout() {
+      document.getElementById('adminDashboard').style.display = 'none';
+      document.getElementById('loginBox').style.display = 'block';
+      document.getElementById('adminPass').value = '';
+    }
+
+    // جلب الحالات من قاعدة البيانات
+    async function loadCases() {
+      const container = document.getElementById('galleryContainer');
+      const emptyMsg = document.getElementById('emptyMsg');
+      container.innerHTML = '<p style="font-size:0.85rem; color:#64748b;">جاري التحميل...</p>';
+
+      const { data, error } = await supabaseClient
+        .from('cases')
+        .select('*')
+        .order('id', { ascending: false });
+
+      if (error) {
+        container.innerHTML = '<p style="color:red; font-size:0.85rem;">حدث خطأ في جلب البيانات.</p>';
+        return;
+      }
+
+      container.innerHTML = '';
+      if (!data || data.length === 0) {
+        emptyMsg.style.display = 'block';
+        return;
+      }
+
+      emptyMsg.style.display = 'none';
+      data.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'gallery-item-card';
+        div.innerHTML = `
+          <img src="${item.image_url}" alt="حالة">
+          <button class="btn-delete-img" onclick="deleteCase(${item.id})" title="حذف الصورة">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // إضافة حالة جديدة
+    async function addNewCase() {
+      const urlInput = document.getElementById('newImageUrl');
+      const url = urlInput.value.trim();
+
+      if (!url) {
+        alert('يرجى إدخال رابط الصورة أولاً!');
+        return;
+      }
+
+      const { data, error } = await supabaseClient
+        .from('cases')
+        .insert([{ image_url: url }]);
+
+      if (error) {
+        alert('فشل إضافة الصورة: ' + error.message);
+      } else {
+        urlInput.value = '';
+        alert('تمت إضافة الحالة بنجاح!');
+        loadCases();
+      }
+    }
+
+    // حذف حالة
+    async function deleteCase(id) {
+      if (!confirm('هل أنت متأكد من حذف هذه الصورة من المعرض؟')) return;
+
+      const { error } = await supabaseClient
+        .from('cases')
+        .delete()
+        .eq('id', id);
+
+      if (error) {
+        alert('فشل الحذف: ' + error.message);
+      } else {
+        loadCases();
+      }
+    }
+  </script>
+</body>
+        </html>
+        
