@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>د. عماد حسين | جراحة وتجميل الأنف</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0f1e36;
+      --primary-light: #1b2f4e;
+      --accent-gold: #c59b4c;
+      --accent-gold-soft: #f4ecdc;
+      --bg-page: #f8fafc;
+      --surface: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --success: #059669;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 110px;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .en-sub {
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    /* Header Profile */
+    .profile-hero {
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 16px 20px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    /* إطار صورة الدكتور (تكبير عند الضغط على أي مكان، بدون أيقونة فوق الصورة) */
+    .doctor-avatar-wrap {
+      position: relative;
+      width: 165px;
+      height: 165px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      border: 4px solid var(--accent-gold);
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(15, 30, 54, 0.2);
+      background: #0f1e36;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .doctor-avatar-wrap:hover {
+      transform: scale(1.03);
+      box-shadow: 0 14px 32px rgba(15, 30, 54, 0.28);
+    }
+
+    .doctor-avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    .badge-specialty {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-gold-soft);
+      color: #875c1c;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
+    .doctor-name-calligraphy {
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 2.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+      line-height: 1.25;
+      letter-spacing: 0.5px;
+    }
+
+    .doctor-title-en {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-bottom: 8px;
+    }
+
+    .doctor-creds {
+      font-size: 0.84rem;
+      color: #334155;
+      font-weight: 600;
+      line-height: 1.5;
+      max-width: 440px;
+      margin: 0 auto 14px;
+    }
+
+    /* Trust Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 12px 10px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .stat-card .num {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .stat-card .desc {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Quick Links */
+    .quick-actions {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .btn-action-outline {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--surface);
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+      padding: 9px 6px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action-outline:hover {
+      border-color: var(--primary);
+      background: #f8fafc;
+    }
+
+    /* Section Head */
+    .section-head {
+      margin: 22px 0 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 2px solid #eef2f6;
+      padding-bottom: 8px;
+    }
+
+    .section-head h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-head .en-title {
+      color: var(--text-muted);
+    }
+
+    /* Gallery Container */
+    .gallery-container {
+      position: relative;
+      margin-bottom: 18px;
+    }
+
+    .gallery-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-gold) transparent;
+      min-height: 80px;
+    }
+
+    .gallery-scroll::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .gallery-scroll::-webkit-scrollbar-thumb {
+      background-color: var(--accent-gold);
+      border-radius: 10px;
+    }
+
+    .gallery-item {
+      position: relative;
+      flex: 0 0 80%;
+      scroll-snap-align: center;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: #000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 275px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.02);
+    }
+
+    /* علامة التكبير لصور المعرض فقط */
+    .gallery-zoom-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(15, 30, 54, 0.75);
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .empty-gallery-box {
+      width: 100%;
+      padding: 30px 16px;
+      background: #ffffff;
+      border: 2px dashed #cbd5e1;
+      border-radius: var(--radius);
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .empty-gallery-box i {
+      font-size: 2rem;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .empty-gallery-box p {
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .gallery-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 15, 25, 0.94);
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.25s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 95%;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      object-fit: contain;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: -42px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .lightbox-close-btn:hover {
+      background: #ef4444;
+    }
+
+    /* Panels */
+    .panel-card {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+    }
+
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #334155;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 9px 12px;
+      font-size: 0.84rem;
+      border: 1px solid var(--border-color);
+      border-radius: 9px;
+      background: #fafafa;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      background: #fff;
+    }
+
+    .radio-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .extra-note-input {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      padding: 7px 10px;
+      background: #fff;
+    }
+
+    .btn-submit-assessment {
+      width: 100%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 13px;
+      border-radius: 11px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      transition: background 0.2s;
+    }
+
+    .btn-submit-assessment:hover {
+      background: var(--primary-light);
+    }
+
+    .photo-note {
+      background: #eff6ff;
+      border: 1px dashed #bfdbfe;
+      padding: 10px;
+      border-radius: 9px;
+      font-size: 0.77rem;
+      color: #1e40af;
+      margin-top: 12px;
+      line-height: 1.45;
+    }
+
+    .file-upload-box {
+      border: 1px dashed #cbd5e1;
+      padding: 10px;
+      border-radius: 8px;
+      background: #f8fafc;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 6px;
+      display: block;
+    }
+
+    .file-upload-box i {
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .file-upload-box span {
+      display: block;
+      font-size: 0.76rem;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    /* Accordion Tabs */
+    .accordion-item {
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 13px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      user-select: none;
+      background: #ffffff;
+    }
+
+    .accordion-header i.chevron {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      transition: transform 0.25s ease;
+    }
+
+    .accordion-item.active .accordion-header i.chevron {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 14px;
+      font-size: 0.81rem;
+      color: #475569;
+      border-top: 1px solid var(--border-color);
+      background: #fbfcfe;
+      line-height: 1.6;
+    }
+
+    .accordion-item.active .accordion-body {
+      display: block;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0;
+    }
+
+    .pill-test {
+      background: #e2e8f0;
+      color: var(--primary);
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+
+    .diet-box {
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+    }
+    .diet-allowed { background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; }
+    .diet-avoid { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; margin-top: 6px; }
+
+    /* Videos Grid */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 420px) {
+      .videos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .video-card-btn {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 12px 8px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .video-card-btn:hover {
+      border-color: #ef4444;
+      background: #fff5f5;
+    }
+
+    .video-card-btn i {
+      font-size: 1.5rem;
+    }
+
+    .video-card-btn span {
+      font-size: 0.74rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    /* Schedule */
+    .schedule-card {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+
+    .schedule-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .schedule-header i {
+      color: var(--accent-gold);
+    }
+
+    .schedule-detail {
+      font-size: 0.79rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .btn-maps {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #2563eb;
+      text-decoration: none;
+      margin-top: 8px;
+    }
+
+    /* Highlight Banner */
+    .highlight-banner {
+      background: linear-gradient(135deg, #101c31 0%, #1c2e4c 100%);
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 18px;
+      text-align: center;
+      margin: 18px 0;
+    }
+
+    .highlight-banner h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .highlight-banner p {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      margin-bottom: 12px;
+    }
+
+    .btn-insta-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: var(--primary);
+      padding: 9px 18px;
+      border-radius: 9px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    /* Sticky Contact Bar */
+    .fixed-action-bar {
+      position: fixed;
+      bottom: 14px;
+      left: 16px;
+      right: 16px;
+      max-width: 488px;
+      margin: 0 auto;
+      z-index: 100;
+    }
+
+    .btn-wa-direct {
+      background: var(--success);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(5, 150, 105, 0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Medical Profile Hero -->
+  <header class="profile-hero">
+    <div class="container">
+      
+      <!-- صورة الدكتور: النقر على أي مكان بالإطار يكبر الصورة، وتمت إزالة الأيقونة -->
+      <div class="doctor-avatar-wrap" onclick="openLightbox('https://i.postimg.cc/GhzGg3jt/1792464977223.jpg')" title="اضغط لتكبير الصورة">
+        <img src="https://i.postimg.cc/GhzGg3jt/1792464977223.jpg" alt="د. عماد حسين - جراحة وتجميل الأنف">
+      </div>
+      
+      <div class="badge-specialty">
+        <span class="en-sub">Rhinoplasty Surgeon</span>
+      </div>
+
+      <!-- اسم الدكتور بالخط العربي المخطوط -->
+      <h1 class="doctor-name-calligraphy">د. عماد حسين</h1>
+      <p class="doctor-title-en en-sub">Otolaryngologist (ENT) & Rhinoplasty Specialist</p>
+      
+      <p class="doctor-creds">
+        اختصاصي جراحة الأذن والأنف والحنجرة • ماجستير ودراسات عليا في تجميل وترميم الأنف — دمشق
+      </p>
+
+      <!-- Trust Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="num">+2000</span>
+          <span class="desc">عملية تجميل وترميم أنف موثقة</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">ENT Master</span>
+          <span class="desc">جراحة وظيفية وشكلية متخصصة</span>
+        </div>
+      </div>
+
+      <!-- Quick Navigation Buttons -->
+      <div class="quick-actions">
+        <a href="#assessment-section" class="btn-action-outline">
+          <i class="fas fa-file-medical" style="color:var(--primary);"></i> تقييم الحالة
+        </a>
+        <a href="#gallery-section" class="btn-action-outline">
+          <i class="fas fa-images"></i> معرض الحالات
+        </a>
+        <a href="#protocols-section" class="btn-action-outline">
+          <i class="fas fa-notes-medical"></i> الإرشادات
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. Interactive Assessment Form Section -->
+    <section id="assessment-section">
+      <div class="section-head">
+        <h2><i class="fas fa-clipboard-check"></i> استمارة التقييم الأولي للحالة</h2>
+        <span class="en-sub en-title">Online Assessment</span>
+      </div>
+
+      <div class="panel-card">
+        <form id="rhinoForm" onsubmit="handleFormSubmit(event)">
+          
+          <div class="form-group">
+            <label class="form-label">الاسم الكامل:</label>
+            <input type="text" id="patientName" class="form-control" placeholder="اسم المراجع">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="form-group">
+              <label class="form-label">العمر:</label>
+              <select id="patientAge" class="form-control">
+                <!-- توليد الأعمار تلقائياً -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">مكان الإقامة:</label>
+              <select id="patientCity" class="form-control">
+                <option value="دمشق وريفها">دمشق وريفها</option>
+                <option value="حلب">حلب</option>
+                <option value="حمص">حمص</option>
+                <option value="حماة">حماة</option>
+                <option value="اللاذقية وطرطوس">اللاذقية وطرطوس</option>
+                <option value="المنطقة الجنوبية (درعا / السويداء / القنيطرة)">المنطقة الجنوبية</option>
+                <option value="المنطقة الشرقية">المنطقة الشرقية</option>
+                <option value="خارج سوريا">خارج سوريا</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- عمليات سابقة على الأنف -->
+          <div class="form-group">
+            <label class="form-label">هل أجريت عمليات سابقة على الأنف؟</label>
+            <div class="radio-row">
+              <label class="radio-option"><input type="radio" name="priorNoseOp" value="لا" checked> لا</label>
+              <label class="radio-option"><input type="radio" name="priorNoseOp" value="نعم"> نعم</label>
+            </div>
+            <input type="text" id="priorNoseNote" class="form-control te-input" placeholder="إذا كانت الإجابة نعم، اذكر نوع وتاريخ العملية (اختياري)">
+          </div>
+
+          <!-- عمليات جراحية أخرى تحت التخدير العام -->
+          <div class="form-group">
+            <label class="form-label">هل أجريت أي عمليات جراحية أخرى تحت التخدير العام؟</label>
+            <div class="radio-row">
+              <label class="radio-option"><input type="radio" name="priorOtherOp" value="لا" checked> لا</label>
+              <label class="radio-option"><input type="radio" name="priorOtherOp" value="نعم"> نعم</label>
+            </div>
+            <input type="text" id="priorOtherNote" class="form-control extra-note-input" placeholder="إذا كانت الإجابة نعم، اذكر نوع العملية السابقة (اختياري)">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">سبب الاستشارة وشكوى الأنف:</label>
+            <select id="mainComplaint" class="form-control">
+              <option value="انزعاج من الشكل فقط (تجميل أنف)">انزعاج من الشكل فقط</option>
+              <option value="صعوبة في التنفس الأنفي">صعوبة في التنفس الأنفي</option>
+              <option value="صداع وألم وجهي متكرر">صداع وألم وجهي متكرر</option>
+              <option value="شخير ليلي">شخير ليلي</option>
+              <option value="جميع ما سبق (مشاكل شكلية وتنفسية)">جميع ما سبق</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">أمراض مزمنة أو أدوية مستمرة:</label>
+            <select id="medicalHistory" class="form-control">
+              <option value="لا يوجد أية أمراض أو أدوية مزمنة">لا يوجد أية أمراض أو أدوية</option>
+              <option value="أمراض مزمنة (ضغط / سكري / غيرها)">أمراض مزمنة (ضغط، سكري...)</option>
+              <option value="أدوية مستمرة (أدوية هرمونية / مميعات)">أدوية مستمرة (أدوية هرمونية، مميعات...)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">التدخين:</label>
+            <div class="radio-row">
+              <label class="radio-option"><input type="radio" name="smokingStatus" value="غير مدخن" checked> غير مدخن</label>
+              <label class="radio-option"><input type="radio" name="smokingStatus" value="مدخن (دخان / أركيلة / فيب)"> مدخن (دخان / أركيلة / فيب)</label>
+            </div>
+          </div>
+
+          <!-- ملاحظات إضافية -->
+          <div class="form-group">
+            <label class="form-label">ملاحظات أو استفسار خاص تود إضافته (اختياري):</label>
+            <textarea id="patientExtraNotes" class="form-control" rows="2" placeholder="اكتب هنا أي تفصيل إضافي حابب تخبر الدكتور فيه..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">صور الأنف للمعاينة:</label>
+            <label for="nosePhotos" class="file-upload-box">
+              <i class="fas fa-camera"></i>
+              <span id="uploadLabel">اضغط لاختيار صور الأنف من الجوال (أمامية وجانبية)</span>
+              <input type="file" id="nosePhotos" accept="image/*" multiple style="display:none;" onchange="updatePhotoLabel(this)">
+            </label>
+          </div>
+
+          <div class="photo-note">
+            <i class="fas fa-info-circle"></i> <strong>ملاحظة:</strong> بالضغط على الزر أدناه ستنتقل مباشرة لمحادثة الواتساب مع العيادة، ويُرجى إرسال الصور (بدون فلتر) لمعاينة الطبيب بدقة.
+          </div>
+
+          <button type="submit" class="btn-submit-assessment">
+            <i class="fab fa-whatsapp"></i> إرسال الاستمارة للمعاينة الطبية
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. Before & After Cases Carousel (معرض الحالات) -->
+    <section id="gallery-section">
+      <div class="section-head">
+        <h2><i class="fas fa-camera-retro"></i> بعض من نتائج الحالات</h2>
+        <span class="en-sub en-title">Results Gallery</span>
+      </div>
+
+      <div class="gallery-container">
+        <div class="gallery-scroll" id="casesGallery">
+          <div class="empty-gallery-box">
+            <i class="fas fa-images"></i>
+            <p>سيتم رفع وتحديث نتائج الحالات قريباً عبر لوحة التحكم</p>
+          </div>
+        </div>
+        <div class="gallery-hint">
+          <i class="fas fa-arrows-left-right"></i> اسحب جانباً للتصفح • واضغط على أي صورة لتكبيرها
+        </div>
+      </div>
+    </section>
+
+    <!-- نافذة تكبير الصورة المنبثقة (Lightbox Modal) -->
+    <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+      <div class="lightbox-content" onclick="event.stopPropagation()">
+        <button class="lightbox-close-btn" onclick="closeLightbox(event)" title="إلغاء التكبير">
+          <i class="fas fa-times"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="تكبير الصورة">
+      </div>
+    </div>
+
+    <!-- 3. Short Educational Videos -->
+    <section>
+      <div class="section-head">
+        <h2><i class="fas fa-video" style="color:#ef4444;"></i> فيديوهات وتوضيحات هامة</h2>
+        <span class="en-sub en-title">Educational Videos</span>
+      </div>
+
+      <div class="videos-grid">
+        <a href="https://youtube.com/shorts/36I_HVCjs5A?si=awoyKb9O0Iq53nuN" target="_blank" class="video-card-btn">
+          <i class="fab fa-youtube" style="color:#ef4444;"></i>
+          <span>طريقة تطبيق البلاستر على الأنف</span>
+        </a>
+        <a href="https://youtube.com/shorts/hQT8anfP6WM?si=WwnyfBpLP6MjCRcs" target="_blank" class="video-card-btn">
+          <i class="fab fa-youtube" style="color:#ef4444;"></i>
+          <span>طريقة مساج الأنف</span>
+        </a>
+        <a href="https://www.instagram.com/reel/DT8Av2IDBA1/?igsh=MTF3NGtvcjc1c2NwdA==" target="_blank" class="video-card-btn">
+          <i class="fab fa-instagram" style="color:#e1306c;"></i>
+          <span>عملية ترميم الأنف</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4. Reviews & Highlights Callout Section -->
+    <section>
+      <div class="highlight-banner">
+        <h3><i class="fab fa-instagram"></i> تجارب وآراء المراجعين (فيديو)</h3>
+        <p>مشاهدة تجارب حقيقية موثقة ورسائل وفيديوهات المراجعين بعد أشهر من العملية عبر إنستغرام</p>
+        <a href="https://www.instagram.com/dr.imad_rhinoplasty" target="_blank" class="btn-insta-highlight">
+          <i class="fab fa-instagram"></i> مشاهدة تجارب المراجعين بالهايلايت
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. Pre & Post-Op Guidelines Section -->
+    <section id="protocols-section">
+      <div class="section-head">
+        <h2><i class="fas fa-book-medical"></i> الإرشادات الطبية والبروتوكول</h2>
+        <span class="en-sub en-title">Clinical Guidelines</span>
+      </div>
+
+      <!-- Accordion 1: Lab Tests -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-vial" style="color:#2563eb; margin-left:6px;"></i> التحاليل الدموية اللازمة لتثبيت موعد العملية</span>
+          <i class="fas fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-body">
+          <p>تُجرى التحاليل التالية قبل موعد العملية بأسبوع على الأقل وهي إلزامية لتثبيت الموعد:</p>
+          <div class="pill-list">
+            <span class="pill-test">CBC</span>
+            <span class="pill-test">PT</span>
+            <span class="pill-test">PTT</span>
+            <span class="pill-test">INR</span>
+            <span class="pill-test">Bleeding time</span>
+            <span class="pill-test">TSH</span>
+          </div>
+          <p style="color:#b91c1c; font-weight:700; font-size:0.75rem; margin-top:6px;">
+            * تنبيه: في حال التأخر بإجراء التحاليل سيتم إلغاء الموعد المسجل تلقائياً.
+          </p>
+        </div>
+      </div>
+
+      <!-- Accordion 2: Pre-Op Day -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-user-clock" style="color:#059669; margin-left:6px;"></i> تعليمات ما قبل الدخول للعملية</span>
+          <i class="fas fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-body">
+          <ul style="padding-right: 18px; margin-bottom: 8px;">
+            <li>صيام تام 8 ساعات عن الأكل والشرب قبل موعد العملية.</li>
+            <li>الوصول للمشفى بالموعد المتفق عليه لفتح الإضبارة والتحويل للغرفة.</li>
+            <li>إحضار الهويات الشخصية للمريض والمرافق (يفضل قريب درجة أولى).</li>
+            <li>إيقاف أي دواء غير ضروري والامتناع عن التدخين قبل 48 ساعة.</li>
+            <li>فحص المريض والاتفاق النهائي على الشكل بطابق العمليات في حال عدم وجود معاينة مسبقة.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Accordion 3: Immediate Post-Op -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-bed" style="color:#d97706; margin-left:6px;"></i> العناية بالأيام الأولى بعد العملية</span>
+          <i class="fas fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-body">
+          <ul style="padding-right: 18px;">
+            <li><strong>وضعية النوم:</strong> نصف جلوس لمدة شهر كامل.</li>
+            <li><strong>شاشة الأنف:</strong> تبديل الشاشة كل ساعتين أو كلما تلوثت.</li>
+            <li><strong>الكمادات:</strong> كمادات ثلج بكيس على التورم دون وصول الماء للجبيرة. (تورم واحمرار العينين أمر طبيعي جداً).</li>
+            <li><strong>الغذاء:</strong> طعام طري وسوائل وعصائر فريش (أناناس)، والامتناع عن السوائل الساخنة لمدة أسبوعين.</li>
+            <li>المشي اليومي والتحرك الطبيعي وتجنب الاستلقاء طوال اليوم.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Accordion 4: Post-Op Shower Instructions -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-shower" style="color:#0284c7; margin-left:6px;"></i> بروتوكول وتعليمات الاستحمام بعد العملية</span>
+          <i class="fas fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-body">
+          <ul style="padding-right: 18px;">
+            <li><strong>ممنوع الاستحمام الكامل:</strong> يمنع منعاً باتاً الاستحمام الكامل قبل مرور 15 يوماً على العملية.</li>
+            <li><strong>الاستحمام الجزئي (أول أسبوع):</strong> يكون الاستحمام للجسم فقط بعد أول أسبوع، وغسيل الشعر فقط مع الحرص التام على عدم وصول الماء للجبيرة نهائياً.</li>
+            <li><strong>بعد نزع الجبيرة بـ 5 أيام:</strong> يمكن الاستحمام بشكل كامل مع الانتباه التام لعدم دخول الماء لداخل الأنف، ولتجنب ذلك يُدهن مرهم فوسيدات داخل الأنف وعلى حوافه قبل الدخول للاستحمام.</li>
+            <li><strong>الاستحمام الطبيعي:</strong> نعود للاستحمام الطبيعي المعتاد بعد مرور شهر كامل على العملية.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Accordion 5: Splint & Cast Removal -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-band-aid" style="color:#7c3aed; margin-left:6px;"></i> بعد نزع الفتايل والجبيرة الخارجية</span>
+          <i class="fas fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-body">
+          <p><strong>بعد نزع الفتايل (اليوم الثالث):</strong></p>
+          <ul style="padding-right: 18px; margin-bottom: 8px;">
+            <li>بخاخ الأنف (سي سيروم): بخّتان بكل فتحة كل 12 ساعة لمدة أسبوعين.</li>
+            <li>تنظيف لطيف للجرح الخارجي بعود قطن بعد البخاخ، ثم دهن قليل من مرهم الفوسيدات.</li>
+            <li>تجديد دواء الالتهاب علبة ثانية فقط (omni 300).</li>
+          </ul>
+          <p style="margin-top:8px;"><strong>بعد نزع الجبيرة والخيوط (اليوم العاشر):</strong></p>
+          <ul style="padding-right: 18px;">
+            <li>تطبيق بلاستر ورقي 3M: أول شهر يوضع 24 ساعة يومياً (يبدل صباحاً بعد غسيل الوجه بصابون طبي بلطف وترطيبه بالماء)، والشهرين الثاني والثالث ليلاً قبل النوم فقط.</li>
+            <li>مرهم الترميم مكان الخيوط لمدة شهر إلى 3 أشهر.</li>
+            <li>لا حاجة للمساج الأنفي إلا بطلب صريح من الطبيب، مع تجنب الانحناء للأمام لفترات طويلة.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Accordion 6: Thick Skin & Diet -->
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span><i class="fas fa-apple-alt" style="color:#10b981; margin-left:6px;"></i> بروتوكول الأنف اللحمي والبشرة الدهنية</span>
+          <i class="fas fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-body">
+          <p><strong>العلاج الدوائي بعد شهرين من العملية (عند إقرار الطبيب):</strong></p>
+          <ul style="padding-right: 18px; margin-bottom: 8px;">
+            <li>Retane 20 mg: حبة يومياً لمدة 3 أشهر مع فحص شهري لوظائف الكبد (ALT / AST).</li>
+            <li>ممنوع الحمل للمتزوجة نهائياً خلال فترة العلاج ولسنة كاملة بعد انتهائه.</li>
+            <li>شرب 3 ليتر ماء يومياً مع ترطيب الشفاه بالفازلين الطبي وقطرة دمع صناعي للعين صباحاً ومساءً.</li>
+          </ul>
+          
+          <div class="diet-box diet-allowed">
+            <strong><i class="fas fa-check-circle"></i> الأغذية المنصوح بها:</strong><br>
+            خضار يومياً (خس، خيار، سبانخ، بروكلي)، فواكه باعتدال (تفاح، توت، برتقال)، بروتين صحي (سمك، دجاج، بيض، بقوليات)، دهون صحية قليلة (زيت زيتون، مكسرات)، كربوهيدرات صحية (شوفان، خبز أسمر)، شاي أخضر وقهوة بدون سكر.
+          </div>
+          
+          <div class="diet-box diet-avoid">
+            <strong><i class="fas fa-times-circle"></i> يفضل تجنبها:</strong><br>
+            السكر والحلويات، المقليات والوجبات السريعة، المشروبات الغازية، المعجنات، والأطعمة المصنّعة.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Clinic Locations & Hospital Rounds -->
+    <section id="schedule-section">
+      <div class="section-head">
+        <h2><i class="fas fa-map-marker-alt"></i> مواقع العيادة والمراجعات</h2>
+        <span class="en-sub en-title">Locations & Schedule</span>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <i class="fas fa-clinic-medical"></i> عيادة جرمانا
+        </div>
+        <p class="schedule-detail">
+          دوار الفارس (الباسل سابقاً) - مقابل القدموس وفاميلي فود - طابق أرضي جانب مخبر أوزون.<br>
+          <strong>الدوام:</strong> مسائي حصراً (سبت - اثنين - أربعاء) بموعد مسبق وعلى الانتظار.
+        </p>
+        <a href="https://maps.google.com/?q=33.485954,36.340099" target="_blank" class="btn-maps">
+          <i class="fas fa-directions"></i> فتح الموقع الدقيق على خرائط Google
+        </a>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <i class="fas fa-hospital-user"></i> المراجعات الصباحية في المشافي (بموعد مسبق)
+        </div>
+        <p class="schedule-detail">
+          • <strong>مشفى الراضي (جرمانا):</strong> صباح يوم الأحد.<br>
+          • <strong>مشفى النخبة (شارع بغداد):</strong> صباح يوم الخميس.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky WhatsApp Contact -->
+  <div class="fixed-action-bar">
+    <a href="https://wa.me/963949037469" target="_blank" class="btn-wa-direct">
+      <i class="fab fa-whatsapp" style="font-size: 1.25rem;"></i> محادثة مباشرة مع عيادة د. عماد حسين
+    </a>
+  </div>
+
+  <script>
+    // توليد خيارات الأعمار من 16 إلى 60 سنة تلقائياً
+    window.addEventListener('DOMContentLoaded', () => {
+      const ageSelect = document.getElementById('patientAge');
+      if (ageSelect) {
+        for (let i = 16; i <= 60; i++) {
+          const opt = document.createElement('option');
+          opt.value = i;
+          opt.textContent = i + ' سنة';
+          if (i === 25) opt.selected = true;
+          ageSelect.appendChild(opt);
+        }
+      }
+    });
+
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+    }
+
+    // دوال تكبير وإلغاء تكبير الصور (Lightbox Modal)
+    function openLightbox(imageUrl) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      if (modal && img) {
+        img.src = imageUrl;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox(event) {
+      if (event) event.stopPropagation();
+      const modal = document.getElementById('lightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function updatePhotoLabel(input) {
+      const label = document.getElementById('uploadLabel');
+      if (input.files && input.files.length > 0) {
+        label.innerText = `تم تحديد ${input.files.length} صور جاهزة للمعاينة ✓`;
+        label.style.color = '#059669';
+      }
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('patientName').value.trim() || 'لم يُذكر';
+      const age = document.getElementById('patientAge').value;
+      const city = document.getElementById('patientCity').value;
+      
+      const priorNoseOp = document.querySelector('input[name="priorNoseOp"]:checked').value;
+      const priorNoseNote = document.getElementById('priorNoseNote').value.trim();
+      const priorNoseText = priorNoseNote ? `${priorNoseOp} (${priorNoseNote})` : priorNoseOp;
+
+      const priorOtherOp = document.querySelector('input[name="priorOtherOp"]:checked').value;
+      const priorOtherNote = document.getElementById('priorOtherNote').value.trim();
+      const priorOtherText = priorOtherNote ? `${priorOtherOp} (${priorOtherNote})` : priorOtherOp;
+
+      const complaint = document.getElementById('mainComplaint').value;
+      const medHistory = document.getElementById('medicalHistory').value;
+      const smoking = document.querySelector('input[name="smokingStatus"]:checked').value;
+      const extraNotes = document.getElementById('patientExtraNotes').value.trim() || 'لا توجد ملاحظات إضافية';
+
+      const message = 
+`*استمارة تقييم حالة تجميل أنف - د. عماد حسين*
+---------------------------------------
+👤 *الاسم:* ${name}
+🎂 *العمر:* ${age} سنة
+📍 *مكان الإقامة:* ${city}
+---------------------------------------
+1. عمليات سابقة على الأنف: ${priorNoseText}
+2. عمليات سابقة تحت التخدير العام: ${priorOtherText}
+3. سبب الاستشارة وشكوى الأنف: ${complaint}
+4. الأمراض والأدوية المزمنة: ${medHistory}
+5. التدخين: ${smoking}
+📝 *ملاحظات المراجع:* ${extraNotes}
+---------------------------------------
+📸 مرفق صور الأنف (أمامية وجانبية) للمعاينة الطبية.`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/963949037469?text=${encodedMessage}`;
+      
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</body>
+  </html>
+  
